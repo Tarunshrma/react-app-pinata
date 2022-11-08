@@ -14,7 +14,7 @@ jobs:
       - run: npm run build
       - run: VERSION=$(node -p "require('./package.json').version")
         env:
-          ver: VERSION
+          ver: $(node -p "require('./package.json').version")
 
       - uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
         with:
