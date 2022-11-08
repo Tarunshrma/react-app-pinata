@@ -1,8 +1,14 @@
-uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
-with:
-  pin-name: 'My personal site'
-  path: './build'
-  pinata-api-key: b64d3e3d3bd7553f04c4
-  pinata-secret-api-key: f8b7c1e94e823cbbfd9ff61b77fe605e3ae28cce08f0600a1de0c397d8bc50d7
-  verbose: true
-  remove-old: false
+name: Pinata Deployment
+
+on:
+  push:
+    branches: [ "main" ]
+jobs:    
+  uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.4
+  with:
+    pin-name: 'My personal site'
+    path: './build'
+    pinata-api-key: b64d3e3d3bd7553f04c4
+    pinata-secret-api-key: f8b7c1e94e823cbbfd9ff61b77fe605e3ae28cce08f0600a1de0c397d8bc50d7
+    verbose: true
+    remove-old: false
