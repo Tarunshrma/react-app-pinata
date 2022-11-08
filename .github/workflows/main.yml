@@ -13,10 +13,12 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: VERSION=$(node -p "require('./package.json').version")
+        env:
+          ver: VERSION
 
       - uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
         with:
-          pin-name: 'TestApp- ${{ env.VERSION }}'
+          pin-name: 'TestApp- ${{ env.ver }}'
           path: './build'
           pinata-api-key: ${{ secrets.PINATA_KEY }}
           pinata-secret-api-key: ${{ secrets.PINATA_SECRET }}
