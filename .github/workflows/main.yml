@@ -8,13 +8,17 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - run: yarn prepare
+      - run: yarn build
 
-    steps:   
-    - uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
-      with:
-        pin-name: 'My personal site'
-        path: './build'
-        pinata-api-key: b64d3e3d3bd7553f04c4
-        pinata-secret-api-key: f8b7c1e94e823cbbfd9ff61b77fe605e3ae28cce08f0600a1de0c397d8bc50d7
-        verbose: true
-        remove-old: false
+      - uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
+        with:
+          pin-name: 'My personal site'
+          path: './build'
+          pinata-api-key: b64d3e3d3bd7553f04c4
+          pinata-secret-api-key: f8b7c1e94e823cbbfd9ff61b77fe605e3ae28cce08f0600a1de0c397d8bc50d7
+          verbose: true
+          remove-old: false
