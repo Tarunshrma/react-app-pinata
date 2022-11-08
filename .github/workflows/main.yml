@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:   
-    - uses: anantaramdas/ipfs-pinata-deploy-action@v1.6.3
+    - uses: anantaramdas/ipfs-pinata-deploy-action@39bbda1ce1fe24c69c6f57861b8038278d53688d
       with:
         pin-name: 'My personal site'
         path: './build'
